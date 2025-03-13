@@ -128,7 +128,11 @@ BEGIN
 
 
   BEGIN TRAN;
-  DELETE FROM tSQLt.Private_RenamedObjectLog OUTPUT Deleted.* INTO #RenamedObjects;
+
+  INSERT INTO #RenamedObjects
+    SELECT * FROM tSQLt.Private_RenamedObjectLog;
+    
+  TRUNCATE TABLE tSQLt.Private_RenamedObjectLog;
 
   WITH MarkedTestDoubles AS
   (
