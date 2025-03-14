@@ -5,7 +5,7 @@ GO
 CREATE PROCEDURE tSQLt.Private_CleanTestResult
 AS
 BEGIN
-   DELETE FROM tSQLt.TestResult;
+   TRUNCATE TABLE tSQLt.TestResult;
 END;
 GO
 ---Build-
